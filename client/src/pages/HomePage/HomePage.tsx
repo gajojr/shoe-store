@@ -2,6 +2,7 @@ import React from 'react';
 import * as StyledComponents from './HomePage.styles';
 
 import MainSection from '../../components/HomePage/MainSection/MainSection';
+import CommentsSection from '../../components/HomePage/Comments/CommentsSection';
 import FooterSection from '../../components/HomePage/Footer/FooterSection';
 
 const HomePage = () => {
@@ -10,6 +11,7 @@ const HomePage = () => {
             <StyledComponents.Main>
                 <MainSection/>
             </StyledComponents.Main>
+            <CommentsSection/>
             <FooterSection/>
         </React.Fragment>
     );

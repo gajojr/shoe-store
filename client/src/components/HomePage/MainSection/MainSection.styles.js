@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Section = styled.section `
     width: 80%;
     text-align: center;
+    margin-bottom: 20px;
 
     @media (max-width: 1200px) {
         width: 100%;
