@@ -1,17 +1,46 @@
 import React from 'react';
+import axios from 'axios';
 
-import { CommentsComponent, Comment } from './CommentsSection.styles';
+import { Wrapper, CommentsComponent, Comment, GiConverseShoeStyled } from './CommentsSection.styles';
 
-const arr = new Array(4).fill('Some random comment');
+interface CommentType {
+    creator: String
+    body: String
+}
+class CommentsSection extends React.Component <any, any> {
+    constructor(props: Object) {
+        super(props);
+        this.state = {comments: [], creators: []};
+    }
 
-class CommentsSection extends React.Component {
+    componentDidMount() {
+        axios.get('http://localhost:5000/comments')
+            .then(response => {
+                const comments: String[] = [];
+                const creators: String[] = [];
+                response.data.comments.map((comment: CommentType) => {
+                    comments.push(comment.body);
+                    creators.push(comment.creator);
+                });
+                this.setState({ comments, creators })
+            })
+            .catch(error => console.log(error));
+    }
+
     render() {
         return (
-            <CommentsComponent>
-                {arr.map(comment => {
-                    return <Comment>{comment}</Comment> 
-                })}
-            </CommentsComponent>
+            <Wrapper>
+                <CommentsComponent>
+                    {this.state.comments.map((comment: string, idx: number) => {
+                        return <Comment key={idx}>
+                            {comment}
+                            <br/>
+                            - {this.state.creators[idx].substring(0, this.state.creators[idx].indexOf('@'))}
+                            <GiConverseShoeStyled size={40}/>
+                            </Comment> 
+                    })}
+                </CommentsComponent>
+            </Wrapper>
         )
     }
 }
