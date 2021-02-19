@@ -7,6 +7,7 @@ interface CommentType {
     creator: String
     body: String
 }
+
 class CommentsSection extends React.Component <any, any> {
     constructor(props: Object) {
         super(props);
@@ -18,11 +19,11 @@ class CommentsSection extends React.Component <any, any> {
             .then(response => {
                 const comments: String[] = [];
                 const creators: String[] = [];
-                response.data.comments.map((comment: CommentType) => {
+                response.data.comments.forEach((comment: CommentType) => {
                     comments.push(comment.body);
                     creators.push(comment.creator);
                 });
-                this.setState({ comments, creators })
+                this.setState({ comments, creators });
             })
             .catch(error => console.log(error));
     }

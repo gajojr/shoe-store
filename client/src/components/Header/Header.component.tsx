@@ -20,7 +20,7 @@ const Header = () => {
                 {activeBar || document.body.clientWidth > 1024 ? 
                     <StyledComponents.Navigation>
                         <StyledComponents.StyledLink to="/" className={`${title === 'Shoe store' ? 'active-link' : ''}`} onClick={() => setChange(!change)}>POCETNA</StyledComponents.StyledLink>
-                        <StyledComponents.StyledLink to="/muskarci" className={`${title === 'Muskarci' ? 'active-link' : ''}`} onClick={() => setChange(!change)}>MUSKARCI</StyledComponents.StyledLink>
+                        <StyledComponents.StyledLink to="/katalog" className={`${title === 'Muskarci' ? 'active-link' : ''}`} onClick={() => setChange(!change)}>MUSKARCI</StyledComponents.StyledLink>
                         <StyledComponents.StyledLink to="/zene" className={`${title === 'Zene' ? 'active-link' : ''}`} onClick={() => setChange(!change)}>ZENE</StyledComponents.StyledLink>
                         <StyledComponents.StyledLink to='/deca' className={`${title === 'Deca' ? 'active-link' : ''}`} onClick={() => setChange(!change)}>DECA</StyledComponents.StyledLink>
                         <StyledComponents.StyledLink to="/prodavnice" className={`${title === 'prodavnice' ? 'active-link' : ''}`} onClick={() => setChange(!change)}>PRODAVNICE</StyledComponents.StyledLink>

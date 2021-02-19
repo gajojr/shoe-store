@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/Header/Header.component';
 
 import HomePage from './pages/HomePage/HomePage';
+import KatalogPage from './pages/Katalog/Katalog';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Header/>
         <Switch>
           <Route path="/" exact component={HomePage}/>
-          {/*<Route path="/login" component={LoginPage}/>*/}
+          <Route path="/katalog" component={KatalogPage}/>
         </Switch>
       </div>
     </Router>
