@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Patike = () => {
+const Patike: React.FC = () => {
     return (
         <h1>Patike</h1>
     )
