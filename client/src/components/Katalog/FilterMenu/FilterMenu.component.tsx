@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as StyledComponents from './FilterMenu.styles'
 
-const FilterMenu = () => {
+const FilterMenu: React.FC = () => {
     const [brojPatika, setBrojPatika] = useState(0);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const FilterMenu = () => {
             </StyledComponents.OptionDiv>
 
             <StyledComponents.OptionDiv>
-                velicina:
+                velicina: {!brojPatika ? 'sve velicine' : brojPatika}
                 <StyledComponents.BrojeviPatika>
                     <StyledComponents.BrojPatika onClick={() => setBrojPatika(38)}>38</StyledComponents.BrojPatika>
                     <StyledComponents.BrojPatika onClick={() => setBrojPatika(39)}>39</StyledComponents.BrojPatika>
