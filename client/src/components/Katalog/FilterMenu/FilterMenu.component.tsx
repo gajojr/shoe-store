@@ -11,23 +11,7 @@ const FilterMenu: React.FC = () => {
 
     const toogleCenaDiv = (): void => {
         const div: HTMLDivElement = document.getElementById('cena_patika') as HTMLDivElement;
-        if (window.getComputedStyle(div).getPropertyValue('opacity') === '1') {
-            const fadeOut = () => {
-                div.style.opacity = `${parseFloat(window.getComputedStyle(div).getPropertyValue('opacity')) - 0.25}`;
-                if (div.style.opacity === '0') {
-                    clearInterval(fadeOutInterval);
-                }
-            }
-            const fadeOutInterval = setInterval(fadeOut, 100);
-        } else {
-            const fadeIn = () => {
-                div.style.opacity = `${parseFloat(window.getComputedStyle(div).getPropertyValue('opacity')) + 0.25}`;
-                if (div.style.opacity === '1') {
-                    clearInterval(fadeInInterval);
-                }
-            }
-            const fadeInInterval = setInterval(fadeIn, 100);
-        }
+        div.style.display = div.style.display === 'none' ? 'block' : 'none';
     }
 
     const toogleBrojeviPatikaDiv = (): void => {
@@ -51,7 +35,7 @@ const FilterMenu: React.FC = () => {
                     <span>cena:</span>
                     <AiFillCaretDown onClick={toogleCenaDiv} />
                 </StyledComponents.CenaDiv>
-                <StyledComponents.CenaOpcije id='cena_patika'>
+                <StyledComponents.CenaOpcije id='cena_patika' style={{ display: 'none' }}>
                     od: <input type='number' placeholder='0' />
                     <br />
                     do: <input type='number' placeholder='30 000' />
